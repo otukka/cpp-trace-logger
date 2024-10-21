@@ -17,12 +17,11 @@ target_sources(
     PRIVATE 
     main.cpp
     instrumentation.cpp
-    ${CMAKE_SOURCE_DIR}/src/tracer.cpp
 )
 
 target_link_libraries(main PRIVATE mylib)
 target_include_directories(main PRIVATE ${CMAKE_SOURCE_DIR}/include)
-target_compile_options(main PRIVATE -rdynamic -finstrument-functions -finstrument-functions-exclude-file-list=/usr/lib,/usr/include,/usr/include/c++,${CMAKE_SOURCE_DIR}/src/tracer.cpp,${CMAKE_SOURCE_DIR}/include/tracer.hpp,instrumentation.cpp)
+target_compile_options(main PRIVATE -rdynamic -finstrument-functions -finstrument-functions-exclude-file-list=/usr/lib,/usr/include,/usr/include/c++,${CMAKE_SOURCE_DIR}/include/tracer.hpp,instrumentation.cpp)
 
 
 
